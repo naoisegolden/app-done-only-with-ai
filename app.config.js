@@ -42,12 +42,13 @@ export default {
         supabaseUrl: process.env.SUPABASE_URL,
         supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
         eas: {
-            projectId: "restaurant-app"
+            projectId: "72b2c499-4d7c-49d1-bf76-7b33f4e00afa"
         }
     },
     updates: {
-        url: "https://u.expo.dev/restaurant-app",
-        enabled: true
+        url: "https://u.expo.dev/72b2c499-4d7c-49d1-bf76-7b33f4e00afa",
+        enabled: true,
+        fallbackToCacheTimeout: 0
     },
     runtimeVersion: {
         policy: "appVersion"
