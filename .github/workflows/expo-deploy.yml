@@ -8,14 +8,9 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  publish:
+    name: Install and publish
     runs-on: ubuntu-latest
-    
-    env:
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-
     steps:
       - name: 📦 Checkout code
         uses: actions/checkout@v3
@@ -29,21 +24,17 @@ jobs:
       - name: 🏗 Setup Expo
         uses: expo/expo-github-action@v8
         with:
-          eas-version: latest
           expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: |
-          npm install
-          npm install -g eas-cli
-          npm install expo-barcode-scanner @expo/config-plugins
+        run: npm ci
 
-      - name: 🔧 Configure Expo
+      - name: 🔧 Create environment file
         run: |
-          npx expo install --fix
-          npx expo doctor --fix
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+          echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
 
-      - name: 🚀 Build and submit update
+      - name: 🚀 Publish to Expo
         run: |
-          eas update --channel preview --message "Update: ${{ github.event.head_commit.message }}" --non-interactive 
+          expo publish --non-interactive 
