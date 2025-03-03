@@ -30,12 +30,19 @@ jobs:
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
+          expo-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
         run: |
           npm install
           npm install -g eas-cli
+          npm install expo-barcode-scanner @expo/config-plugins
+
+      - name: 🔧 Configure Expo
+        run: |
+          npx expo install --fix
+          npx expo doctor --fix
 
       - name: 🚀 Build and submit update
         run: |
