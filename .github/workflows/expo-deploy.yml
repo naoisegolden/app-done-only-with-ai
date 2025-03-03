@@ -35,7 +35,6 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🚀 Create preview
-        uses: expo/expo-github-action/preview@v8
-        with:
-          command: eas update --auto 
+      - name: 🚀 Build and submit update
+        run: |
+          npx eas update --channel preview --message "Update: ${{ github.event.head_commit.message }}" 
