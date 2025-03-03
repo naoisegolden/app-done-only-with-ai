@@ -50,7 +50,5 @@ export default {
         enabled: true,
         fallbackToCacheTimeout: 0
     },
-    runtimeVersion: {
-        policy: "appVersion"
-    }
+    runtimeVersion: "1.0.0"
 }; 
