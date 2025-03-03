@@ -8,8 +8,8 @@ on:
       - main
 
 jobs:
-  publish:
-    name: Install and publish
+  update:
+    name: Install and update
     runs-on: ubuntu-latest
     steps:
       - name: 📦 Checkout code
@@ -21,10 +21,10 @@ jobs:
           node-version: 18.x
           cache: npm
 
-      - name: 🏗 Setup Expo
+      - name: 🏗 Setup EAS
         uses: expo/expo-github-action@v8
         with:
-          expo-version: latest
+          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
@@ -35,6 +35,5 @@ jobs:
           echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
           echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> .env
 
-      - name: 🚀 Publish to Expo
-        run: |
-          expo publish --non-interactive 
+      - name: 🚀 Create and publish update
+        run: eas update --auto 

@@ -35,7 +35,8 @@ export default {
             {
                 cameraPermission: "Allow $(PRODUCT_NAME) to access camera."
             }
-        ]
+        ],
+        "expo-updates"
     ],
     extra: {
         supabaseUrl: process.env.SUPABASE_URL,
@@ -44,10 +45,11 @@ export default {
             projectId: "restaurant-app"
         }
     },
+    updates: {
+        url: "https://u.expo.dev/restaurant-app",
+        enabled: true
+    },
     runtimeVersion: {
         policy: "appVersion"
-    },
-    updates: {
-        url: "https://u.expo.dev/restaurant-app"
     }
 }; 
