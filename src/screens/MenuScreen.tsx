@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Image,
     ActivityIndicator,
+    ListRenderItem,
 } from 'react-native';
 import type { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,7 +53,7 @@ export default function MenuScreen({ route, navigation }: Props) {
         }
     };
 
-    const renderCategory = ({ item }: { item: MenuCategory }) => (
+    const renderCategory: ListRenderItem<MenuCategory> = ({ item }) => (
         <TouchableOpacity
             style={[
                 styles.categoryButton,
@@ -71,7 +72,7 @@ export default function MenuScreen({ route, navigation }: Props) {
         </TouchableOpacity>
     );
 
-    const renderMenuItem = ({ item }: { item: MenuItem }) => (
+    const renderMenuItem: ListRenderItem<MenuItem> = ({ item }) => (
         <TouchableOpacity
             style={styles.menuItem}
             onPress={() => navigation.navigate('ItemDetail', { itemId: item.id })}
@@ -103,7 +104,7 @@ export default function MenuScreen({ route, navigation }: Props) {
 
     return (
         <View style={styles.container}>
-            <FlatList
+            <FlatList<MenuCategory>
                 horizontal
                 data={categories}
                 renderItem={renderCategory}
@@ -111,7 +112,7 @@ export default function MenuScreen({ route, navigation }: Props) {
                 style={styles.categoriesList}
                 showsHorizontalScrollIndicator={false}
             />
-            <FlatList
+            <FlatList<MenuItem>
                 data={selectedCategoryItems}
                 renderItem={renderMenuItem}
                 keyExtractor={(item) => item.id}

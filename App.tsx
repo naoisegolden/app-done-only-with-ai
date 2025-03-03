@@ -9,11 +9,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ScannerScreen from './src/screens/ScannerScreen';
 import MenuScreen from './src/screens/MenuScreen';
 import ItemDetailScreen from './src/screens/ItemDetailScreen';
+import AuthScreen from './src/screens/AuthScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 export type RootStackParamList = {
     Scanner: undefined;
     Menu: { restaurantId: string };
     ItemDetail: { itemId: string };
+    Auth: undefined;
+    Home: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -53,6 +57,20 @@ export default function App() {
                             component={ItemDetailScreen}
                             options={{
                                 title: 'Item Details',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Auth"
+                            component={AuthScreen}
+                            options={{
+                                title: 'Authentication',
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Home"
+                            component={HomeScreen}
+                            options={{
+                                title: 'Home',
                             }}
                         />
                     </Stack.Navigator>
