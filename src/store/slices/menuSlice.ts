@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface MenuItem {
+export interface MenuItem {
     id: string;
     category_id: string;
     name: string;
@@ -12,13 +12,13 @@ interface MenuItem {
     sort_order: number | null;
 }
 
-interface MenuCategory {
+export interface MenuCategory {
     id: string;
     restaurant_id: string;
     name: string;
     description: string | null;
     sort_order: number | null;
-    items: MenuItem[];
+    menu_items: MenuItem[];
 }
 
 interface MenuState {

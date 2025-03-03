@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
     View,
     Text,
@@ -14,6 +14,7 @@ import { setCategories, setSelectedCategory } from '../store/slices/menuSlice';
 import { getFullMenu } from '../services/supabase';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
+import type { MenuCategory, MenuItem } from '../store/slices/menuSlice';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Menu'>;
 
@@ -50,7 +51,7 @@ export default function MenuScreen({ route, navigation }: Props) {
         }
     };
 
-    const renderCategory = ({ item }: { item: any }) => (
+    const renderCategory = ({ item }: { item: MenuCategory }) => (
         <TouchableOpacity
             style={[
                 styles.categoryButton,
@@ -69,7 +70,7 @@ export default function MenuScreen({ route, navigation }: Props) {
         </TouchableOpacity>
     );
 
-    const renderMenuItem = ({ item }: { item: any }) => (
+    const renderMenuItem = ({ item }: { item: MenuItem }) => (
         <TouchableOpacity
             style={styles.menuItem}
             onPress={() => navigation.navigate('ItemDetail', { itemId: item.id })}

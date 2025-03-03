@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Restaurant {
+export interface Restaurant {
     id: string;
     name: string;
     description: string | null;
     logo_url: string | null;
+    qr_code: string;
+    created_at: string;
 }
 
 interface RestaurantState {

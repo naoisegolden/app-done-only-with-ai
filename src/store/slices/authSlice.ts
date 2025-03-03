@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User } from '@supabase/supabase-js';
 
 interface AuthState {
     isAuthenticated: boolean;
-    user: any | null;
+    user: User | null;
     loading: boolean;
     error: string | null;
 }
@@ -21,7 +22,7 @@ const authSlice = createSlice({
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
         },
-        setUser: (state, action: PayloadAction<any>) => {
+        setUser: (state, action: PayloadAction<User | null>) => {
             state.user = action.payload;
             state.isAuthenticated = !!action.payload;
         },
