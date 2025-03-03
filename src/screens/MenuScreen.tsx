@@ -8,6 +8,7 @@ import {
     Image,
     ActivityIndicator,
 } from 'react-native';
+import type { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { setCategories, setSelectedCategory } from '../store/slices/menuSlice';
@@ -125,65 +126,65 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f5f5f5',
-    },
+    } as ViewStyle,
     loadingContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    },
+    } as ViewStyle,
     categoriesList: {
         backgroundColor: '#fff',
         paddingVertical: 10,
-    },
+    } as ViewStyle,
     categoryButton: {
         paddingHorizontal: 20,
         paddingVertical: 10,
         marginHorizontal: 5,
         borderRadius: 20,
         backgroundColor: '#f0f0f0',
-    },
+    } as ViewStyle,
     selectedCategory: {
         backgroundColor: '#007AFF',
-    },
+    } as ViewStyle,
     categoryText: {
         fontSize: 16,
         color: '#333',
-    },
+    } as TextStyle,
     selectedCategoryText: {
         color: '#fff',
-    },
+    } as TextStyle,
     menuList: {
         flex: 1,
         padding: 10,
-    },
+    } as ViewStyle,
     menuItem: {
         flexDirection: 'row',
         backgroundColor: '#fff',
         borderRadius: 10,
         marginBottom: 10,
         overflow: 'hidden',
-    },
+    } as ViewStyle,
     itemImage: {
         width: 100,
         height: 100,
-    },
+    } as ImageStyle,
     itemInfo: {
         flex: 1,
         padding: 10,
-    },
+    } as ViewStyle,
     itemName: {
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 5,
-    },
+    } as TextStyle,
     itemDescription: {
         fontSize: 14,
         color: '#666',
         marginBottom: 5,
-    },
+    } as TextStyle,
     itemPrice: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#007AFF',
-    },
+    } as TextStyle,
 }); 
