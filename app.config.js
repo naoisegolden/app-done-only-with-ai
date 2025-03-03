@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 export default {
     name: "Restaurant Menu QR Scanner",
-    slug: "restaurant-menu-qr-scanner",
+    slug: "restaurant-app",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
