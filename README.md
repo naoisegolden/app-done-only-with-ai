@@ -35,11 +35,12 @@ cd restaurant-menu-scanner
 npm install
 ```
 
-3. Configure Supabase:
-   - Create a new project in Supabase
-   - Copy your project URL and anon key
-   - Update `src/services/supabase.ts` with your credentials
-   - Set up the menu tables in Supabase (see Database Schema below)
+3. Set up environment variables:
+   - Copy `.env.example` to `.env`
+   - Update the values in `.env` with your credentials:
+     - `SUPABASE_URL`: Your Supabase project URL
+     - `SUPABASE_ANON_KEY`: Your Supabase anonymous key
+     - `EXPO_TOKEN`: Your Expo access token
 
 4. Start the development server:
 ```bash

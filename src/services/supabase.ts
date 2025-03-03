@@ -1,8 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
+import Constants from 'expo-constants';
 
-// Replace these with your Supabase project credentials
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+// Supabase configuration
+const supabaseUrl = Constants.expoConfig?.extra?.supabaseUrl;
+const supabaseAnonKey = Constants.expoConfig?.extra?.supabaseAnonKey;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error('Missing Supabase configuration. Please check your app.config.js');
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
