@@ -33,8 +33,10 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install -g eas-cli
 
       - name: 🚀 Build and submit update
         run: |
-          npx eas update --channel preview --message "Update: ${{ github.event.head_commit.message }}" 
+          eas update --channel preview --message "Update: ${{ github.event.head_commit.message }}" --non-interactive 
