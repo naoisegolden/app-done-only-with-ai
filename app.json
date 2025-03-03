@@ -38,14 +38,14 @@
         ],
         "extra": {
             "eas": {
-                "projectId": "your-project-id"
+                "projectId": "restaurant-app"
             }
         },
         "runtimeVersion": {
             "policy": "appVersion"
         },
         "updates": {
-            "url": "https://u.expo.dev/your-project-id"
+            "url": "https://u.expo.dev/restaurant-app"
         }
     }
 }
